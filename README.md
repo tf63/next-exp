@@ -9,3 +9,13 @@
 ```
     npx create-next-app@latest --ts <プロジェクト名>
 ```
+
+**ルーティング**
+```
+    function Sample() {
+        return <span>サンプルのページです</span>
+    }
+
+    // ページコンポーネントはexport defaultする
+    export default Sample
+```
