@@ -8,7 +8,7 @@ services:
       dockerfile: containers/Dockerfile
     tty: true
     volumes:
-      - ./frontend:/app
+      - ./nextjs-blog:/app
     ports:
       - 3000:3000
       - 5173:5173
