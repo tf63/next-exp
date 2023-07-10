@@ -1,35 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React from 'react'
+import { useEffect, useState } from 'react'
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
+
+import Home from './components/Home'
+import About from './components/About'
+import Profile from './components/Profile'
+import Card from './components/Card'
+import Game from './components/Game'
+import Greeting from './components/Tutorial/Greeting'
+import Nav from './components/Nav'
+import Input from './components/Tutorial/Input'
 import './App.css'
+import Select from './components/Select'
+import TicTacToe from './components/Tutorial/TicTacToe'
+import Tutorial from './components/Tutorial'
+import Material from './components/Material'
+import Counter from './components/Tutorial/Counter'
+import Timer from './components/Tutorial/Timer'
+import Result from './components/Result'
 
 function App() {
-  const [count, setCount] = useState(0)
+    return (
+        <Router>
+            <Nav />
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+            <Routes>
+                {/* Nav */}
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/game" element={<Game />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/material" element={<Material />} />
+                <Route path="/tutorial" element={<Tutorial />} />
+                <Route path="/select" element={<Select />} />
+                <Route path="/result" element={<Result />} />
+                {/* Tutorials */}
+                <Route path="/tictactoe" element={<TicTacToe />} />
+                <Route path="/counter" element={<Counter initialValue={0} />} />
+                <Route path="/greeting" element={<Greeting name="AAAAA" />} />
+                <Route path="/input" element={<Input />} />
+                <Route path="/timer" element={<Timer />} />
+            </Routes>
+        </Router>
+    )
 }
 
 export default App
